@@ -1,8 +1,13 @@
 package com.onats.composeformfield.ui
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.ButtonDefaults.buttonColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -88,8 +93,16 @@ fun UserInformationScreen() {
                 )
                 Text(text = "Remember details.")
             }
-            Button(onClick = {  }) {
-
+            Button(
+                onClick = { },
+                modifier = Modifier.padding(top = 30.dp, start = 20.dp, end = 20.dp),
+                colors = buttonColors(
+                    backgroundColor = MaterialTheme.colors.primary,
+                ),
+                shape = RoundedCornerShape(20.dp),
+                enabled = infoScreenState.buttonState.value
+            ) {
+                Text(text = "Proceed")
             }
         }
     }

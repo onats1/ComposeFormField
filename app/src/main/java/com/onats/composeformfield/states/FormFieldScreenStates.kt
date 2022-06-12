@@ -12,12 +12,14 @@ class FormFieldScreenStates(
     var firstName: MutableState<String>,
     var lastName: MutableState<String>,
     var middleName: MutableState<String>,
-    var shouldRemember: MutableState<Boolean>
+    var shouldRemember: MutableState<Boolean>,
+    var buttonState: MutableState<Boolean>
 ) {
 
     operator fun getValue(nothing: Nothing?, property: KProperty<*>): FormFieldScreenStates {
         return this
     }
+
 }
 
 
@@ -27,7 +29,8 @@ fun rememberFormFieldStates(
     firstName: MutableState<String> = rememberSaveable { mutableStateOf("") },
     lastName: MutableState<String> = rememberSaveable { mutableStateOf("") },
     middleName: MutableState<String> = rememberSaveable { mutableStateOf("") },
-    shouldRemember: MutableState<Boolean> = rememberSaveable { mutableStateOf(false) }
+    shouldRemember: MutableState<Boolean> = rememberSaveable { mutableStateOf(false) },
+    buttonState: MutableState<Boolean> = rememberSaveable { mutableStateOf(true) }
 ) = remember(email, firstName, lastName, middleName, shouldRemember) {
-    FormFieldScreenStates(email, firstName, lastName, middleName, shouldRemember)
+    FormFieldScreenStates(email, firstName, lastName, middleName, shouldRemember, buttonState)
 }
