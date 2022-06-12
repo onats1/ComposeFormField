@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ComposeFormField</string>
+    <string name="user_info_header">User Details</string>
+</resources>
